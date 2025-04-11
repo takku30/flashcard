@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alphabet Flashcards</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .flashcard {
+      width: 150px;
+      height: 200px;
+      perspective: 1000px;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .front {
+      background-color: #fff;
+      color: #333;
+    }
+
+    .back {
+      background-color: #333;
+      color: #fff;
+      transform: rotateY(180deg);
+      flex-direction: column;
+      font-size: 1rem;
+      padding: 10px;
+    }
+
+    .back img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 10px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Flashcards A-Z -->
+  <script>
+    const cards = [
+      { letter: 'A', word: 'Apple', img: 'https://source.unsplash.com/80x80/?apple' },
+      { letter: 'B', word: 'Ball', img: 'https://source.unsplash.com/80x80/?ball' },
+      { letter: 'C', word: 'Cat', img: 'https://source.unsplash.com/80x80/?cat' },
+      { letter: 'D', word: 'Dog', img: 'https://source.unsplash.com/80x80/?dog' },
+      { letter: 'E', word: 'Elephant', img: 'https://source.unsplash.com/80x80/?elephant' },
+      { letter: 'F', word: 'Fish', img: 'https://source.unsplash.com/80x80/?fish' },
+      { letter: 'G', word: 'Grapes', img: 'https://source.unsplash.com/80x80/?grapes' },
+      { letter: 'H', word: 'Hat', img: 'https://source.unsplash.com/80x80/?hat' },
+      { letter: 'I', word: 'Ice cream', img: 'https://source.unsplash.com/80x80/?ice-cream' },
+      { letter: 'J', word: 'Juice', img: 'https://source.unsplash.com/80x80/?juice' },
+      { letter: 'K', word: 'Kite', img: 'https://source.unsplash.com/80x80/?kite' },
+      { letter: 'L', word: 'Lion', img: 'https://source.unsplash.com/80x80/?lion' },
+      { letter: 'M', word: 'Monkey', img: 'https://source.unsplash.com/80x80/?monkey' },
+      { letter: 'N', word: 'Nest', img: 'https://source.unsplash.com/80x80/?nest' },
+      { letter: 'O', word: 'Orange', img: 'https://source.unsplash.com/80x80/?orange' },
+      { letter: 'P', word: 'Panda', img: 'https://source.unsplash.com/80x80/?panda' },
+      { letter: 'Q', word: 'Queen', img: 'https://source.unsplash.com/80x80/?queen' },
+      { letter: 'R', word: 'Rabbit', img: 'https://source.unsplash.com/80x80/?rabbit' },
+      { letter: 'S', word: 'Sun', img: 'https://source.unsplash.com/80x80/?sun' },
+      { letter: 'T', word: 'Tiger', img: 'https://source.unsplash.com/80x80/?tiger' },
+      { letter: 'U', word: 'Umbrella', img: 'https://source.unsplash.com/80x80/?umbrella' },
+      { letter: 'V', word: 'Violin', img: 'https://source.unsplash.com/80x80/?violin' },
+      { letter: 'W', word: 'Whale', img: 'https://source.unsplash.com/80x80/?whale' },
+      { letter: 'X', word: 'Xylophone', img: 'https://source.unsplash.com/80x80/?xylophone' },
+      { letter: 'Y', word: 'Yacht', img: 'https://source.unsplash.com/80x80/?yacht' },
+      { letter: 'Z', word: 'Zebra', img: 'https://source.unsplash.com/80x80/?zebra' },
+    ];
+
+    cards.forEach(card => {
+      document.body.innerHTML += `
+        <div class="flashcard">
+          <div class="card">
+            <div class="front">${card.letter}</div>
+            <div class="back">
+              <img src="${card.img}" alt="${card.word}" />
+              <strong>${card.word}</strong>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
